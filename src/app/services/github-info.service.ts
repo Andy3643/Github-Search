@@ -25,6 +25,18 @@ export class ProfileServiceService {
       )
       .pipe(map((res) => res));
   }
+  getProfileRepos(): Observable<Repository[]> {
+    return this.http
+      .get<Repository[]>(
+        'https://api.github.com/users/' +
+          this.username +
+          '/repos?client_id=' +
+          this.clientId +
+          '&client_secret= ' +
+          this.clientSecret
+      )
+      .pipe(map((res) => res));
+  }
 
   updateProfile(username: string) {
     this.username = username;
