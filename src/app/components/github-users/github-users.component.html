@@ -1,0 +1,11 @@
+<!-- form input -->
+<div class="row">
+    <div class="col">
+      <form #userForm='ngForm'>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search username" name="users" [(ngModel)]="users"
+            (keyup)='getUsers()'>
+        </div>
+      </form>
+    </div>
+  </div>
