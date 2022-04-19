@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { HttpService } from '../services/http.service';
-import { User } from '../models/user.model';
-import { Repositories } from '../models/repositories';
+import { UserModel } from '../interfaces/user-model';
+import { Repositories } from '../interfaces/repositories';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class LandingPageComponent implements OnInit {
 
-  user : User;
-  repository: Repositories
+  UserModel!: UserModel;
+  repository!: Repositories;
   repositories: Repositories[]=[]
   query: string="";
   constructor(private _http:HttpService) { }
@@ -21,9 +21,9 @@ export class HomepageComponent implements OnInit {
     this.getAccount()
     this.getRepos()
   }
-  getAccount(user:string="andy3643"){
-    this._http.request(user,"users").subscribe((response)=> {
-      this.user = new User(response.login, response.avatar_url, response.url,response.public_repos,response.followers, response.following)
+  getAccount(UserModel:string="andy3643"){
+    this._http.request(UserModel,"users").subscribe((response)=> {
+      this.UserModel = new UserModel(response.login, response.avatar_url, response.url,response.public_repos,response.followers, response.following)
     })
   }
   getRepos(){
