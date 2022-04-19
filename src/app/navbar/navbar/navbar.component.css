@@ -1,0 +1,19 @@
+.description p{
+    font-size: 30px;
+    font-weight: bolder;
+}
+#userbtn{
+    background-color: green;
+    margin-right: 20px;
+    height: 7vh;
+    width: 12vw;
+    border: none;
+}
+
+#repobtn{
+    background-color: orange;
+    margin-left: 20px;
+    height: 7vh;
+    width: 12vw;
+    border: none;
+}
